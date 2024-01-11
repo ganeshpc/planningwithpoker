@@ -25,6 +25,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  settings: {
+    react: {
+      version: 'detect', // Automatically detect React version
+    },
+  },
   plugins: ['react', 'jest', 'prettier'],
   rules: {
     indent: ['error', 2],
