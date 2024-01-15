@@ -4,18 +4,18 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'plugin:jest/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
   ],
   overrides: [
     {
       env: {
         node: true,
-        jest: true,
+        browser: true,
       },
-      files: ['.eslintrc.{js,cjs}'],
+      files: ['*.js', '*.jsx'],
       parserOptions: {
         sourceType: 'script',
       },
@@ -30,7 +30,7 @@ module.exports = {
       version: 'detect', // Automatically detect React version
     },
   },
-  plugins: ['react', 'jest', 'prettier'],
+  plugins: ['react', 'prettier'],
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
