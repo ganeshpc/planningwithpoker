@@ -51,8 +51,10 @@ const User = () => {
         onClick={handleMenu}
         color="inherit"
       >
-        {userContext.userProfilePictureUrl ? (
-          <UserProfilePicture />
+        {userContext.user.profilePicture ? (
+          <UserProfilePicture
+            profilePicture={userContext.user.profilePicture}
+          ></UserProfilePicture>
         ) : (
           <AccountCircle />
         )}
@@ -90,7 +92,7 @@ const User = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleEditUserClick}>
-          <UserProfilePicture></UserProfilePicture> {userContext.user.name}
+          <UserProfilePicture profilePicture={userContext.user.profilePicture}></UserProfilePicture> {userContext.user.name}
           <ListItemIcon>
             <ModeEditOutlineOutlined
               fontSize="small"

@@ -61,16 +61,17 @@ export const GameProvider = (props) => {
     return createdGame;
   };
 
-  const addPlayer = async (playerId, playerName) => {
+  const addPlayer = async (playerId, playerName, playerProfilePicture) => {
     const playerAdded = await firebaseService.addPlayerToGame(
       game.id,
       playerId,
       playerName,
+      playerProfilePicture,
     );
 
     if (playerAdded === true) {
       if (game.players === undefined) game.players = [];
-      game.players = [...game.players, { id: playerId, name: playerName }];
+      game.players = [...game.players, { id: playerId, name: playerName, profilePicture: playerProfilePicture }];
 
       setGame(game);
     }

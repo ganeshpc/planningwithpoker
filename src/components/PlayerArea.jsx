@@ -19,7 +19,7 @@ const PlayerArea = ({ gridArea, players }) => {
     >
       {players.map((player) => {
         return (
-          <Player key={player.id} id={player.id} name={player.name}></Player>
+          <Player key={player.id} id={player.id} name={player.name} profilePicture={player.profilePicture}></Player>
         );
       })}
     </Box>

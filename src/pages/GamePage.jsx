@@ -33,7 +33,7 @@ const GamePage = () => {
   useEffect(() => {
     if (gameContext.game !== null) {
       if (userContext.user !== null) {
-        gameContext.addPlayer(userContext.user.id, userContext.user.name);
+        gameContext.addPlayer(userContext.user.id, userContext.user.name, userContext.user.profilePicture);
       }
     }
   }, [userContext.user, gameContext.game])

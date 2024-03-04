@@ -25,8 +25,8 @@ initializeApp(firebaseConfig);
 const storage = getStorage();
 
 const db = getFirestore();
-connectFirestoreEmulator(db, '146.122.176.191', 444);
-connectStorageEmulator(storage, '146.122.176.191', 9199);
+connectFirestoreEmulator(db, 'localhost', 444);
+connectStorageEmulator(storage, 'localhost', 9199);
 
 const usersCollection = collection(db, 'users');
 const gamesCollection = collection(db, 'games');
@@ -158,7 +158,7 @@ export const updateGame = async (game) => {
   await updateDoc(gameRef, game);
 };
 
-export const addPlayerToGame = async (gameId, playerId, playerName) => {
+export const addPlayerToGame = async (gameId, playerId, playerName, playerProfilePicture) => {
   if (!gameId || !playerId || !playerName) {
     throw new Error('Invalid parameters');
   }
@@ -175,12 +175,14 @@ export const addPlayerToGame = async (gameId, playerId, playerName) => {
     if (currentPlayer === undefined) {
       const newPlayers = [
         ...gameDoc.players,
-        { id: playerId, name: playerName },
+        { id: playerId, name: playerName, profilePicture: playerProfilePicture },
       ];
       await updateDoc(gameRef, { players: newPlayers });
 
       // player was added
       return true;
+    } else {
+
     }
 
     // player was not added

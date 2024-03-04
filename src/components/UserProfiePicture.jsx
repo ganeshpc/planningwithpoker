@@ -1,17 +1,32 @@
+import { useEffect, useState } from 'react';
+
 import { Avatar } from '@mui/material';
 
-import { useUser } from '../context/UserContext';
+import { getImageUrl } from '../utils/utils';
 
-const UserProfilePicture = ({ width, height }) => {
-  const userContext = useUser();
+const UserProfilePicture = ({ width, height, profilePicture }) => {
+ 
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+
+    const getAndSetImageUrl = async (profilePicture) => {
+      const url = await getImageUrl(profilePicture)
+      setImageUrl(url);
+    }
+
+    if (profilePicture) {
+      getAndSetImageUrl(profilePicture);
+    }
+  }, [])
 
   return (
     <Avatar
       alt="Profile Picture"
-      src={userContext.profilePictureUrl ? userContext.profilePictureUrl : null}
+      src={imageUrl}
       sx={{
-        width: width ? width : '5rem',
-        height: height ? height : '5rem',
+        width: width,
+        height: height
       }}
     ></Avatar>
   );

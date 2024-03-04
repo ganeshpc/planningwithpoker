@@ -17,7 +17,6 @@ import Spinner from './Spinner';
 import { useGame } from '../context/GameContext';
 import UserProfilePicture from './UserProfiePicture';
 
-
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',
@@ -86,9 +85,9 @@ const EditUserModal = ({ showModal, closeModal }) => {
   const onProfilePictureFileSelected = async (e) => {
     if (e.target.files[0]) {
       try {
-      setShowSpinner(true);
-      await userContext.setProfilePicture(e.target.files[0]);
-      setShowSpinner(false);
+        setShowSpinner(true);
+        await userContext.setProfilePicture(e.target.files[0]);
+        setShowSpinner(false);
       } catch (e) {
         setShowSpinner(false);
         console.error('Error uploading image: ', e);
@@ -121,20 +120,11 @@ const EditUserModal = ({ showModal, closeModal }) => {
               marginLeft: '1rem',
             }}
           >
-            <UserProfilePicture></UserProfilePicture>
-            {/* <Avatar
-              alt="Profile Picture"
-              src={
-                userContext.profilePictureUrl
-                  ? userContext.profilePictureUrl
-                  : null
-              }
-              sx={{
-                width: '5rem',
-                height: '5rem',
-                marginRight: '0.5rem',
-              }}
-            ></Avatar> */}
+            <UserProfilePicture
+              profilePicture={userContext.user.profilePicture}
+              height={'5rem'}
+              width={'5rem'}
+            ></UserProfilePicture>
 
             <Box
               sx={{

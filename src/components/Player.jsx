@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import { useGame } from '../context/GameContext';
+import UserProfilePicture from './UserProfiePicture';
 
-const Player = ({ id, name }) => {
+const Player = ({ id, name, profilePicture }) => {
   const gameContext = useGame();
   return (
     <Box
@@ -63,7 +64,11 @@ const Player = ({ id, name }) => {
           ) : null}
         </Box>
       )}
-      <Typography variant="h6">{name}</Typography>
+      {profilePicture ? (
+        <UserProfilePicture profilePicture={profilePicture} />
+      ) : (
+        <Typography variant="h6">{name}</Typography>
+      )}
     </Box>
   );
 };
