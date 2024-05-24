@@ -106,9 +106,9 @@ const CardArea = () => {
                       outline: '0',
                       transition: 'all 0.09s linear',
                       borderRadius: '0.8rem',
-                      height: '5rem',
-                      width: '3rem',
-                      minWidth: '3rem',
+                      height: '4rem',
+                      width: '2.4rem',
+                      minWidth: '2.4rem',
                     }}
                   >
                     <Typography
