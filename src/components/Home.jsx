@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box, Button, ButtonGroup } from '@mui/material';
 
 import { useUser } from '../context/UserContext';
 import CreateUser from './CreateUser';
@@ -9,7 +9,11 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const goToCreateGame = () => {
-    navigate('/create-game')
+    navigate('/create-game');
+  };
+
+  const goToJoinGame = () => {
+    navigate('/join-game');
   }
 
   return (
@@ -26,8 +30,17 @@ const HomePage = () => {
       <Typography variant="h4" gutterBottom>
         Welcome to Plannig Poker
       </Typography>
-      {userContext.user === null ? <CreateUser></CreateUser> : (
-        <Button size='large' variant='contained' onClick={goToCreateGame}>Create Game</Button>
+      {userContext.user === null ? (
+        <CreateUser></CreateUser>
+      ) : (
+        <ButtonGroup>
+          <Button size="large" variant="contained" onClick={goToCreateGame}> 
+            Create Game
+          </Button>
+          <Button size="large" variant="contained" onClick={goToJoinGame}>
+            Join Game
+          </Button>
+        </ButtonGroup>
       )}
     </Box>
   );

@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import {
   Avatar,
   Button,
@@ -5,13 +7,20 @@ import {
   TextField,
   Box,
   Container,
-  Autocomplete,
 } from '@mui/material';
 import CasinoIcon from '@mui/icons-material/Casino';
 
-const CreateGame = () => {
+const JoinGame = () => {
+
+  const navigate = useNavigate();
+
   const submitGame = (e) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+
+    const gameId = data.get('gameId');
+
+    navigate(`/game/${gameId}`);
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -52,4 +61,4 @@ const CreateGame = () => {
   );
 };
 
-export default CreateGame;
+export default JoinGame;
