@@ -4,7 +4,6 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  Avatar,
   ListItemIcon,
   Divider,
 } from '@mui/material';
@@ -13,7 +12,7 @@ import {
   AccountCircle,
   Settings,
   Logout,
-  ModeEditOutlineOutlined,
+  ModeEditOutlineOutlined
 } from '@mui/icons-material';
 
 import { useUser } from '../context/UserContext';

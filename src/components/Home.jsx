@@ -14,7 +14,7 @@ const HomePage = () => {
 
   const goToJoinGame = () => {
     navigate('/join-game');
-  }
+  };
 
   return (
     <Box
@@ -28,16 +28,26 @@ const HomePage = () => {
       }}
     >
       <Typography variant="h4" gutterBottom>
-        Welcome to Plannig Poker
+        Welcome to Planning Poker
       </Typography>
       {userContext.user === null ? (
         <CreateUser></CreateUser>
       ) : (
         <ButtonGroup>
-          <Button size="large" variant="contained" onClick={goToCreateGame}> 
+          <Button
+            sx={{ margin: '1rem' }}
+            size="large"
+            variant="contained"
+            onClick={goToCreateGame}
+          >
             Create Game
           </Button>
-          <Button size="large" variant="contained" onClick={goToJoinGame}>
+          <Button
+            sx={{ margin: '1rem' }}
+            size="large"
+            variant="contained"
+            onClick={goToJoinGame}
+          >
             Join Game
           </Button>
         </ButtonGroup>

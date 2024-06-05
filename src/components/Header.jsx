@@ -7,11 +7,19 @@ import {
   ButtonGroup,
 } from '@mui/material';
 
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+
 import User from './User';
 import { useUser } from '../context/UserContext';
+import { useGame } from '../context/GameContext';
+import { useState } from 'react';
 
 const Header = () => {
   const userContext = useUser();
+  const gameContext = useGame();
+
+  const [showInvitePlayers, setShowInvitePlayers] = useState(false);
+
   const navigate = useNavigate();
 
   const createGameClick = () => {
@@ -22,6 +30,12 @@ const Header = () => {
     navigate('/join-game');
   };
 
+  const invitePlayers = () => {
+    console.log('Invite Players');
+  };
+
+
+
   return (
     <AppBar>
       <Toolbar>
@@ -31,12 +45,17 @@ const Header = () => {
         {userContext.user !== null ? (
           <>
             <ButtonGroup variant="text" sx={{ marginX: 2 }}>
-              <Button color="inherit" onClick={createGameClick}>
+              <Button color="inherit" variant='outlined' onClick={createGameClick}>
                 Create Game
               </Button>
-              <Button color="inherit" onClick={joinGame}>
+              <Button color="inherit" variant='outlined' onClick={joinGame}>
                 Join Game
               </Button>
+              {gameContext.game !== null ? (
+                <Button color="inherit" variant='outlined' onClick={invitePlayers}>
+                  <PersonAddIcon sx={{ marginRight: '1rem' }} /> Invite Players
+                </Button>
+              ) : null}
             </ButtonGroup>
             <User></User>
           </>
