@@ -12,15 +12,13 @@ import CasinoIcon from '@mui/icons-material/Casino';
 
 const JoinGame = () => {
 
-  const navigate = useNavigate();
-
   const submitGame = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
     const gameId = data.get('gameId');
 
-    navigate(`/game/${gameId}`);
+    window.location = `/game/${gameId}`;
   };
   return (
     <Container component="main" maxWidth="xs">

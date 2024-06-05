@@ -18,6 +18,10 @@ const Header = () => {
     navigate('/create-game');
   };
 
+  const joinGame = () => {
+    navigate('/join-game');
+  };
+
   return (
     <AppBar>
       <Toolbar>
@@ -29,6 +33,9 @@ const Header = () => {
             <ButtonGroup variant="text" sx={{ marginX: 2 }}>
               <Button color="inherit" onClick={createGameClick}>
                 Create Game
+              </Button>
+              <Button color="inherit" onClick={joinGame}>
+                Join Game
               </Button>
             </ButtonGroup>
             <User></User>
