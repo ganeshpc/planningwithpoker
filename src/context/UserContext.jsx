@@ -17,8 +17,10 @@ export const UserProvider = (props) => {
     const initializeExistingUser = async (userId) => {
       if (userId) {
         const user = await firebaseService.getUser(userId);
-        if (user.profilePicture) {
-          const profilePictureUrl = await firebaseService.getImageUrl(user.profilePicture);
+        if (user?.profilePicture) {
+          const profilePictureUrl = await firebaseService.getImageUrl(
+            user.profilePicture,
+          );
           setProfilePictureUrl(profilePictureUrl);
         }
         setUser(user);
@@ -48,7 +50,9 @@ export const UserProvider = (props) => {
     user.profilePicture = uploadedImage.metadata.name;
     const updatedUser = await firebaseService.updateUser(user.id, user);
 
-    const profilePictureUrl = await firebaseService.getImageUrl(updatedUser.profilePicture);
+    const profilePictureUrl = await firebaseService.getImageUrl(
+      updatedUser.profilePicture,
+    );
     setProfilePictureUrl(profilePictureUrl);
     setUser(updatedUser);
   };
