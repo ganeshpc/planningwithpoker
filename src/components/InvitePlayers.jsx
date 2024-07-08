@@ -32,72 +32,66 @@ const InvitePlayers = () => {
     });
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  };
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Box
-        sx={{
-          marginTop: '2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h5" gutterBottom>
-          {' '}
-          Invite Players{' '}
-        </Typography>
+      {gameContext.game && (
+        <Box
+          sx={{
+            marginTop: '2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography variant="h5" gutterBottom>
+            Invite Players
+          </Typography>
 
-        <Box sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            value={gameContext.game.id}
-            fullWidth
-            label="Game Id"
-            name="gameId"
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-          <Button
-            fullWidth
-            onClick={copyGameId}
-            variant="contained"
-            sx={{ mt: 3, mb: 2, p: 1 }}
-            startIcon={<ContentCopyIcon />}
-          >
-            Copy Game Id
-          </Button>
+          <Box sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              value={gameContext.game.id}
+              fullWidth
+              label="Game Id"
+              name="gameId"
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+            <Button
+              fullWidth
+              onClick={copyGameId}
+              variant="contained"
+              sx={{ mt: 3, mb: 2, p: 1 }}
+              startIcon={<ContentCopyIcon />}
+            >
+              Copy Game Id
+            </Button>
+          </Box>
+          <Box sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              value={window.location.href}
+              fullWidth
+              label="Game Link"
+              name="gameLink"
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+            <Button
+              fullWidth
+              onClick={copyGameLink}
+              variant="contained"
+              sx={{ mt: 3, mb: 2, p: 1 }}
+              startIcon={<LinkIcon />}
+            >
+              Copy Game Link
+            </Button>
+          </Box>
         </Box>
-        <Box sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            value={window.location.href}
-            fullWidth
-            label="Game Link"
-            name="gameLink"
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-          <Button
-            fullWidth
-            onClick={copyGameLink}
-            variant="contained"
-            sx={{ mt: 3, mb: 2, p: 1 }}
-            startIcon={<LinkIcon />}
-          >
-            Copy Game Link
-          </Button>
-        </Box>
-      </Box>
+      )}
 
       <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
