@@ -25,4 +25,5 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PLANNING_WITH_POKER }}
+          channelId: live
           projectId: planning-with-poker
