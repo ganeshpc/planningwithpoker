@@ -14,21 +14,21 @@ import LinkIcon from '@mui/icons-material/Link';
 
 import { useGame } from '../context/GameContext';
 import { useState } from 'react';
+import useSnackbar from '../hooks/useSnackbar';
 
 const InvitePlayers = () => {
   const gameContext = useGame();
-
-  const [open, setOpen] = useState(false);
+  const {showSnackbar, SnackbarComponent } = useSnackbar();
 
   const copyGameId = () => {
     navigator.clipboard.writeText(gameContext.game.id).then(() => {
-      setOpen(true);
+      showSnackbar('Game Id copied to clipboard');
     });
   };
 
   const copyGameLink = () => {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      setOpen(true);
+      showSnackbar('Game Link copied to clipboard')
     });
   };
 
@@ -93,11 +93,7 @@ const InvitePlayers = () => {
         </Box>
       )}
 
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Link copied to clipboard!
-        </Alert>
-      </Snackbar>
+      <SnackbarComponent />
     </Container>
   );
 };

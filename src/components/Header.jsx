@@ -20,8 +20,7 @@ const Header = () => {
   const userContext = useUser();
   const gameContext = useGame();
 
-  const [showInvitePlayers, setShowInvitePlayers] = useState(false);
-  const [dialogOpen, setDialogOpen] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,7 +33,7 @@ const Header = () => {
   };
 
   const invitePlayers = () => {
-    console.log('Invite Players');
+    openDialog();
   };
 
   const openDialog = () => {
