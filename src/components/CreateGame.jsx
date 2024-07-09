@@ -110,7 +110,6 @@ const CreateGame = () => {
                 label="Card Values"
                 required
                 fullWidth
-                autoFocus
               />
             )}
           />

@@ -4,6 +4,7 @@ import Home from './components/Home';
 import { Route, Routes } from 'react-router-dom';
 import CreateGame from './components/CreateGame';
 import Game from './pages/GamePage';
+import JoinGame from './components/JoinGame';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/create-game" element={<CreateGame />}></Route>
+          <Route path="/join-game" element={<JoinGame />}></Route>
           <Route path="/game/:gameId" element={<Game />}></Route>
         </Routes>
       </Box>

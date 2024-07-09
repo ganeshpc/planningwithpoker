@@ -5,13 +5,18 @@ import {
   TextField,
   Box,
   Container,
-  Autocomplete,
 } from '@mui/material';
 import CasinoIcon from '@mui/icons-material/Casino';
 
-const CreateGame = () => {
+const JoinGame = () => {
+
   const submitGame = (e) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+
+    const gameId = data.get('gameId');
+
+    window.location = `/game/${gameId}`;
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -52,4 +57,4 @@ const CreateGame = () => {
   );
 };
 
-export default CreateGame;
+export default JoinGame;
