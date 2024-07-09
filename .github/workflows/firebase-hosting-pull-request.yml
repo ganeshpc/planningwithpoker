@@ -20,7 +20,7 @@ jobs:
           REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
           REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
-          EXAMPLE_ENV_VAR: "example value"
+          EXAMPLE_ENV_VAR: example_value
       - name: Print env
         run: | 
           echo "API_KEY $REACT_APP_FIREBASE_API_KEY"
